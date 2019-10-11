@@ -8,7 +8,7 @@ class ModBinom
     long[] finv;
     int mod;
 
-    public ModBinom(int N, int p = (int)1e9 + 7)//N < p  O(N)
+    public ModBinom(int N, int p = (int)1e9 + 7)
     {
         N++;
 
