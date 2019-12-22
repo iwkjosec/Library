@@ -19,7 +19,7 @@ public class UnionFind
 
     public bool Same(int l, int r) => Root(l) == Root(r);
 
-    void Swap<T>(ref T l, ref T r)
+    static void Swap<T>(ref T l, ref T r)
     {
         var t = l;
         l = r;

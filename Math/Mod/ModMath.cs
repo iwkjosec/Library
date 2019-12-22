@@ -4,7 +4,7 @@ using System.Text;
 
 public static class ModMath
 {
-    public static long ModPow(long x, long n, int m)
+    public static long ModPow(long x, long n, long m)
     {
         var res = 1L;
         while (n != 0)
@@ -16,11 +16,31 @@ public static class ModMath
         return res;
     }
 
-    public static int ModInv(int a, int m)
+    public static long ModLog(long x, long b, long p)
+    {
+        var s = (int)Math.Sqrt(p) + 1;
+        var m = new Dictionary<long, int>();
+        var t = 1L;
+        for (int i = 0; i < s; i++)
+        {
+            if (!m.ContainsKey(t)) m[t] = i;
+            t = t * b % p;
+        }
+        var r = ModInv(t, p);
+        var k = x;
+        for (int i = 0; i < s; i++)
+        {
+            if (m.ContainsKey(k)) return i * s + m[k];
+            k = k * r % p;
+        }
+        return -1;
+    }
+
+    public static long ModInv(long a, long m)
     {
         var b = m;
-        int u = 1;
-        int v = 0;
+        long u = 1;
+        long v = 0;
         while (b != 0)
         {
             var t = a / b;
