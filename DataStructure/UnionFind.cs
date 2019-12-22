@@ -11,10 +11,7 @@ public class UnionFind
     public UnionFind(int length)
     {
         parent = new int[length];
-        for (int i = 0; i < parent.Length; i++)
-        {
-            parent[i] = -1;
-        }
+        for (int i = 0; i < parent.Length; i++) parent[i] = -1;
         count = length;
     }
 
